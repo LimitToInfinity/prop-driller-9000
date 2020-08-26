@@ -3,6 +3,8 @@ import React from 'react';
 import './App.css';
 
 import Header from './Components/Header';
+import Transformer from './Components/Transformer';
+import TransformersSection from './Containers/TransformersSection';
 
 export default class App extends React.Component {
   state = {
@@ -25,10 +27,15 @@ export default class App extends React.Component {
     ]
   }
 
+handleClick = () => {
+  console.log("Clicked")
+}
+
   render() {
     return (
       <div className="App">
-        <Header />
+        <Header img_src={this.state.proptimusLogo} handle_click={this.handleClick} />
+        <TransformersSection transformers={this.state.proptimusii}/>
       </div>
     );
   }
