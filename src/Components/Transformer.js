@@ -1,12 +1,13 @@
 import React from 'react';
 
-function Transformer(props) {
-console.log(props)
+function Transformer({ transformer, nextTransformer }) {
+
   return (
     <img
       className = 'transformer'
-      src = {props.url}
-      alt = {props.name}
+      src={ transformer.url }
+      alt={ transformer.name }
+      onClick={ nextTransformer }
     />
   );
 }

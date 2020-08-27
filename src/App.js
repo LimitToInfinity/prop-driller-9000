@@ -3,7 +3,6 @@ import React from 'react';
 import './App.css';
 
 import Header from './Components/Header';
-import Transformer from './Components/Transformer';
 import TransformersSection from './Containers/TransformersSection';
 
 export default class App extends React.Component {
@@ -18,24 +17,28 @@ export default class App extends React.Component {
       {
         id: 307,
         name: 'beta',
-        url: 'https://library.kissclipart.com/20181004/jbw/kissclipart-alola-exeggutor-height-clipart-optimus-prime-trans-6afe73e9efab0cac.png' },
-      {
+        url: 'https://library.kissclipart.com/20181004/jbw/kissclipart-alola-exeggutor-height-clipart-optimus-prime-trans-6afe73e9efab0cac.png'
+      },{
         id: 9001,
         name: 'omega',
         url: 'http://pngimg.com/uploads/transformers/transformers_PNG3.png'
       }
-    ]
+    ],
+    transformersRendered: false
   }
-
-handleClick = () => {
-  console.log("Clicked")
+handleClicked = () => {
+  this.setState({ transformersRendered: !this.state.transformersRendered })
 }
 
   render() {
+    const  { proptimusLogo, proptimusii, transformersRendered } = this.state;
+
     return (
       <div className="App">
-        <Header img_src={this.state.proptimusLogo} handle_click={this.handleClick} />
-        <TransformersSection transformers={this.state.proptimusii}/>
+        <Header logo={ proptimusLogo } headerClicked={ this.handleClicked } />
+        <TransformersSection 
+          transformers={ proptimusii } 
+          transformersShown={ transformersRendered } /> 
       </div>
     );
   }
