@@ -3,6 +3,9 @@ import React from 'react';
 import './App.css';
 
 import Header from './Components/Header';
+import Transformer from './Components/Transformer';
+
+
 
 export default class App extends React.Component {
   state = {
@@ -22,13 +25,17 @@ export default class App extends React.Component {
         name: 'omega',
         url: 'http://pngimg.com/uploads/transformers/transformers_PNG3.png'
       }
-    ]
+    ],
+    isToggled: true
   }
+
+  handleClick = () => this.setState({isToggled: !this.state.isToggled})
 
   render() {
     return (
       <div className="App">
-        <Header />
+        <Header logo={this.state.proptimusLogo} clicked={this.handleClick}  />
+        <Transformer transformers={this.state.proptimusii} clicked={this.state.isToggled} />
       </div>
     );
   }
